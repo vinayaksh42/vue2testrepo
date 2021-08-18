@@ -1,6 +1,6 @@
 {
   "name": "vue2testrepo",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/vue2testrepo.ssr.js",
   "browser": "dist/vue2testrepo.esm.js",
