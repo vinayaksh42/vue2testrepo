@@ -1,4 +1,5 @@
 import generateIconComponents from './iconScript'
+import tsBuild from './buildScript'
 // import generateIconCommonComponents from './iconCommonScript'
 
 // Script for generating FILLED theme React SVG components
@@ -32,3 +33,7 @@ if (process.argv[2] === '--target=outlined') {
 //     from: 'svg/filled'
 //   })
 // }
+
+if (process.argv[2] === '--target=build') {
+  tsBuild()
+}

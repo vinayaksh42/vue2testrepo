@@ -78,6 +78,8 @@ const globals = {
   vue: 'Vue',
 };
 
+let override = { compilerOptions: { declaration: false } };
+
 // Customize configs for individual targets
 const buildFormats = [];
 if (!argv.format || argv.format === 'es') {
@@ -97,13 +99,11 @@ if (!argv.format || argv.format === 'es') {
       ...baseConfig.plugins.postVue,
       // Only use typescript for declarations - babel will
       // do actual js transformations
-      typescript({
-        typescript: ttypescript,
-        useTsconfigDeclarationDir: true,
-        emitDeclarationOnly: true,
-        clean: false,
-        check: false,
-      }),
+      // typescript({
+      //   typescript: ttypescript,
+      //   useTsconfigDeclarationDir: true,
+      //   emitDeclarationOnly: false
+      // }),
       babel({
         ...baseConfig.plugins.babel,
         presets: [

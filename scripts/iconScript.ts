@@ -27,9 +27,9 @@ async function generateIconComponents ({ type, from }: IconGenerateScript) {
         }
       }
 
-      // const propString = 'svg data-testid="eos-svg-component" transform={`rotate(${rotate}) translate(${translateX}, ${translateY}) scale(${scaleX}, ${scaleY})`} fill={color} width={size} height={size}'
+      const propString = 'svg v-bind:transform="transform(deg,horizontalFlip,verticalFlip)" v-bind:fill="color" v-bind:width="sizeFunction(size)" v-bind:height="sizeFunction(size)"'
 
-      // data = data.replace('svg', propString)
+      data = data.replace('svg', propString)
       data = data.replace(/\n/g, ' ');
       
       var render = componentTemplate({ fileName, data })

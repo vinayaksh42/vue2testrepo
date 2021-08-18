@@ -1,0 +1,106 @@
+
+  <script lang="ts">
+  import Vue from 'vue';
+  
+  export interface ValueMap {
+      [index: string]: string | string,
+  }
+  
+  export interface IconProps {
+      size?: string | number,
+      color?: string,
+      deg?: string,
+      horizontalFlip?: boolean,
+      verticalFlip?: boolean,
+  }
+  
+  export default /*#__PURE__*/Vue.extend({
+    name: 'EOS_HOUSEBOAT_FILLED', // vue component name
+    props:  {
+        size: {
+          type: String,
+          required: false,
+          default: "m"
+        },
+        color: {
+          type: String,
+          required: false,
+          default: "#000000"
+        },
+        deg: {
+          type: String,
+          required: false,
+          default: "0"
+        },
+        horizontalFlip: {
+          type: Boolean,
+          required: false,
+          default: false
+        },
+        verticalFlip: {
+          type: Boolean,
+          required: false,
+          default: false
+        }
+    },
+    methods: {
+      transform(deg : string, horizontalFlip : boolean, verticalFlip : boolean): String {
+        if (!deg) {
+            deg = "0";
+          }
+          let translateX = 0;
+          let translateY = 0;
+          let scaleX = 1;
+          let scaleY = 1;
+    
+          if (horizontalFlip) {
+            scaleX = -1;
+            translateX = 0;
+          }
+    
+          if (verticalFlip) {
+            scaleY = -1;
+            translateY = 0;
+          }
+    
+          return (
+            "rotate(" +
+            deg +
+            " 0 0)" +
+            "translate(" +
+            translateX +
+            "," +
+            translateY +
+            ") scale(" +
+            scaleX +
+            "," +
+            scaleY +
+            ")"
+          );
+      },
+      sizeFunction(size:string): String {
+        if(!size) {
+            size = "m"
+          }
+          let ValueMap: ValueMap = {
+            xs: '4',
+            s: '8',
+            base: '14',
+            m: '18',
+            l: '24',
+            xl: '32',
+            xxl: '48',
+            xxxl: '64'
+          };
+          if (Object.keys(ValueMap).includes(size)) {
+            size = ValueMap[size];
+          }
+          return size;
+      },
+    },
+  });
+  </script>
+  
+  <template>
+      <svg v-bind:transform="transform(deg,horizontalFlip,verticalFlip)" v-bind:fill="color" v-bind:width="sizeFunction(size)" v-bind:height="sizeFunction(size)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,16c-1.95,0-2.1,1-3.34,1c-1.19,0-1.42-1-3.33-1C3.38,16,3.24,17,2,17v2c1.9,0,2.17-1,3.35-1c1.19,0,1.42,1,3.33,1 c1.95,0,2.08-1,3.32-1s1.37,1,3.32,1c1.91,0,2.14-1,3.33-1c1.18,0,1.45,1,3.35,1v-2c-1.24,0-1.38-1-3.33-1c-1.91,0-2.14,1-3.33,1 C14.1,17,13.95,16,12,16z M20.34,11.34l-1.37,1.37C18.78,12.89,18.52,13,18.26,13H17V9.65l1.32,0.97L19.5,9L12,3.5L4.5,9l1.18,1.61 L7,9.65V13H5.74c-0.27,0-0.52-0.11-0.71-0.29l-1.37-1.37l-1.41,1.41l1.37,1.37C4.18,14.68,4.95,15,5.74,15h12.51 c0.8,0,1.56-0.32,2.12-0.88l1.37-1.37L20.34,11.34z M13,13h-2v-2h2V13z"/></svg>
+  </template>

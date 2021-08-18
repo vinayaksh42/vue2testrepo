@@ -40,7 +40,13 @@
     "exclude": [
         "node_modules",
         "dist",
-        "./src/entry.ts"
+        "utils",
+        "gulpfile.ts",
+        "scripts",
+        "template",
+        "svg",
+        "interface",
+        "dev"
     ],
-    "include": ["./src"]
+
 }

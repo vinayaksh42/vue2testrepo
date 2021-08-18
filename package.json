@@ -1,6 +1,6 @@
 {
   "name": "vue2testrepo",
-  "version": "1.0.3",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/vue2testrepo.ssr.js",
   "browser": "dist/vue2testrepo.esm.js",
@@ -8,7 +8,8 @@
   "unpkg": "dist/vue2testrepo.min.js",
   "types": "dist/types/src/entry.esm.d.ts",
   "files": [
-    "dist/*"
+    "dist/*",
+    "src/**/*.vue"
   ],
   "sideEffects": false,
   "scripts": {
@@ -20,8 +21,9 @@
     "script:filled": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/index.ts --target=filled",
     "script:outlined": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/index.ts --target=outlined",
     "script:animated": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/index.ts --target=animated",
-    "icon": "mkdir -p src/lib-components && npm run script:animated",
-    "generate": "npm run fetch && npm run icon && npm run build"
+    "script:build": "mkdir -p dist/types/lib-components && TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/index.ts --target=build",
+    "icon": "mkdir -p src/lib-components && npm run script:filled && npm run script:outlined && npm run script:animated",
+    "generate": "npm run fetch && npm run icon && npm run build && npm run script:build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -46,16 +48,13 @@
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
     "eos-icons": "^5.2.1",
-    "esbuild": "^0.12.20",
     "gulp": "^4.0.2",
     "minimist": "^1.2.5",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
-    "rollup-plugin-esbuild": "^4.5.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "^5.1.9",
-    "rollup-plugin-vue-jsx-compat": "0.0.6",
     "semantic-release": "^17.4.5",
     "ts-node": "^10.2.0",
     "ttypescript": "^1.5.12",
