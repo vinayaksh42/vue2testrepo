@@ -10,8 +10,6 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
-import vueJsx from 'rollup-plugin-vue-jsx-compat'
-import esbuild from 'rollup-plugin-esbuild'
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
@@ -99,11 +97,12 @@ if (!argv.format || argv.format === 'es') {
       ...baseConfig.plugins.postVue,
       // Only use typescript for declarations - babel will
       // do actual js transformations
-      vueJsx(),
-      esbuild({
-        target: 'es2020',
-        minify: process.env.NODE_ENV === 'production',
-        jsxFactory: 'vueJsxCompat'
+      typescript({
+        typescript: ttypescript,
+        useTsconfigDeclarationDir: true,
+        emitDeclarationOnly: true,
+        clean: false,
+        check: false,
       }),
       babel({
         ...baseConfig.plugins.babel,

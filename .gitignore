@@ -2,6 +2,7 @@
 node_modules/
 /dist/
 svg
+src/lib-components/
 
 # local env files
 .env.local
