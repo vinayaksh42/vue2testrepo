@@ -1,0 +1,12 @@
+
+  <script lang="ts">
+  import Vue from 'vue';
+
+  export default /*#__PURE__*/Vue.extend({
+    name: 'EOS_OUTLINED_FLAG_OUTLINED' // vue component name
+  });
+  </script>
+  
+  <template>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+  </template>

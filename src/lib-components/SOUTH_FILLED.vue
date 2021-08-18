@@ -1,0 +1,12 @@
+
+  <script lang="ts">
+  import Vue from 'vue';
+
+  export default /*#__PURE__*/Vue.extend({
+    name: 'EOS_SOUTH_FILLED' // vue component name
+  });
+  </script>
+  
+  <template>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,15l-1.41-1.41L13,18.17V2H11v16.17l-4.59-4.59L5,15l7,7L19,15z"/></svg>
+  </template>

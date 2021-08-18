@@ -1,0 +1,12 @@
+
+  <script lang="ts">
+  import Vue from 'vue';
+
+  export default /*#__PURE__*/Vue.extend({
+    name: 'EOS_FLASH_OFF_OUTLINED' // vue component name
+  });
+  </script>
+  
+  <template>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 10h-3.61l2.28 2.28zm0-8H7v1.61l6.13 6.13zm-13.59.86L2 4.27l5 5V13h3v9l3.58-6.15L17.73 20l1.41-1.41z"/></svg>
+  </template>

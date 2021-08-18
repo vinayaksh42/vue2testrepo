@@ -1,0 +1,12 @@
+
+  <script lang="ts">
+  import Vue from 'vue';
+
+  export default /*#__PURE__*/Vue.extend({
+    name: 'EOS_CALL_MISSED_OUTGOING_FILLED' // vue component name
+  });
+  </script>
+  
+  <template>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 8.41l9 9 7-7V15h2V7h-8v2h4.59L12 14.59 4.41 7 3 8.41z"/></svg>
+  </template>
